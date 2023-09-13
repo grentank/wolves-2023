@@ -4,6 +4,7 @@ import path from 'path';
 import jsxRender from './utils/jsxRender';
 import indexRouter from './routes/indexRouter';
 import studentsRouter from './routes/studentsRouter';
+import apiStudentsRouter from './routes/apiStudentsRouter';
 
 require('dotenv').config();
 
@@ -15,7 +16,9 @@ app.set('view engine', 'jsx');
 app.set('views', path.join(__dirname, 'components'));
 
 app.use(morgan('dev'));
+app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use((req, res, next) => {
   res.locals.path = req.originalUrl;
   next();
@@ -23,5 +26,6 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter); // /students
 app.use('/students', studentsRouter);
+app.use('/api/students', apiStudentsRouter);
 
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));

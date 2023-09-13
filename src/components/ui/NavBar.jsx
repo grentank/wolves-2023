@@ -29,6 +29,12 @@ export default function NavBar() {
             <a className="nav-link" href="/students/add">
               Add student
             </a>
+            <a className="nav-link" href="/joke">
+              Joke
+            </a>
+            <a className="nav-link" href="/counter">
+              Counter
+            </a>
           </div>
         </div>
       </div>

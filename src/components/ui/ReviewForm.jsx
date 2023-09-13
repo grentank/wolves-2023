@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export default function ReviewForm({ studentId }) {
+export default function ReviewForm({ studentId, submitHandler }) {
+  const [input, setInput] = useState('');
+  const changeHandler = (event) => setInput(event.target.value);
+  console.log(input);
+
   return (
-    <form action={`/students/${studentId}/reviews`} method="POST">
+    <form onSubmit={submitHandler}>
       <div className="input-group">
         <textarea
+          value={input}
+          onChange={changeHandler}
           name="review"
-          className="form-control"
+          className={
+            input.length <= 3 ? 'form-control is-invalid' : 'form-control'
+          }
           aria-label="With textarea"
         />
         <span className="input-group-text">
