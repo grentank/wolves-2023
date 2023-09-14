@@ -1,5 +1,6 @@
 import React from 'react';
-import TrashIcon from './TrashIcon';
+import TrashIcon from './icons/TrashIcon';
+import PencilIcon from './icons/PencilIcon';
 
 export default function StudentCard({ oneStudent, deleteHandler }) {
   return (
@@ -23,14 +24,28 @@ export default function StudentCard({ oneStudent, deleteHandler }) {
             </p>
           </div>
           <div className="card-footer">
-            <a className="btn btn-info" href={`/students/${oneStudent.id}`}>
-              Посмотреть ревью
-            </a>
-          </div>
-          <div className="card-footer">
-            <button onClick={() => deleteHandler(oneStudent.id)} type="button" className='btn btn-danger'>
-              <TrashIcon />
-            </button>
+            <div className="btn-group" role="group" aria-label="Basic example">
+              <a
+                className="btn btn-outline-info"
+                href={`/students/${oneStudent.id}`}
+              >
+                Посмотреть ревью
+              </a>
+              <a
+                // onClick={() => deleteHandler(oneStudent.id)}
+                href={`/students/${oneStudent.id}/edit`}
+                className="btn btn-outline-warning"
+              >
+                <PencilIcon />
+              </a>
+              <button
+                onClick={() => deleteHandler(oneStudent.id)}
+                type="button"
+                className="btn btn-outline-danger"
+              >
+                <TrashIcon />
+              </button>
+            </div>
           </div>
         </div>
       </div>

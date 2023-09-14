@@ -2,9 +2,10 @@ import express from 'express';
 import morgan from 'morgan';
 import path from 'path';
 import jsxRender from './utils/jsxRender';
-import indexRouter from './routes/indexRouter';
-import studentsRouter from './routes/studentsRouter';
-import apiStudentsRouter from './routes/apiStudentsRouter';
+import indexRouter from './routes/render/indexRouter';
+import studentsRouter from './routes/render/studentsRouter';
+import apiStudentsRouter from './routes/api/apiStudentsRouter';
+import apiReviewsRouter from './routes/api/apiReviewsRouter';
 
 require('dotenv').config();
 
@@ -27,5 +28,6 @@ app.use((req, res, next) => {
 app.use('/', indexRouter); // /students
 app.use('/students', studentsRouter);
 app.use('/api/students', apiStudentsRouter);
+app.use('/api/reviews', apiReviewsRouter);
 
 app.listen(PORT, () => console.log(`Server has started on PORT ${PORT}`));

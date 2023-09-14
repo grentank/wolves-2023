@@ -36,7 +36,7 @@ export default function OneStudentPage({ oneStudent }) {
         </div>
         <div className="row justify-content-center">
           {reviews.map((review) => (
-            <div className="col-8">
+            <div key={review.id} className="col-8">
               <ReviewItem review={review} />
             </div>
           ))}
