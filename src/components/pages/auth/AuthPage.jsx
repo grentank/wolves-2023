@@ -39,11 +39,11 @@ export default function AuthPage() {
           <Form onSubmit={submitHandler}>
             <Form.Group className="mb-3" controlId="email">
               <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="name@example.com" name="email" id="email" />
+              <Form.Control type="email" placeholder="1@1" name="email" id="email" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="password">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="qwerty" name="password" id="password" />
+              <Form.Control type="password" placeholder="1" name="password" id="password" />
             </Form.Group>
             <Button type="submit" variant="primary">
               Submit

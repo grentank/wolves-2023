@@ -13,7 +13,7 @@ import apiUsersRouter from './routes/api/apiUsersRouter';
 
 require('dotenv').config();
 
-const PORT = process.env.SERVER_PORT || 3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.engine('jsx', jsxRender);

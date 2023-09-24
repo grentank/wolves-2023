@@ -3,11 +3,11 @@ import { Stack } from 'react-bootstrap';
 import MessageForm from './MessageForm';
 import MessagesList from './MessagesList';
 
-export default function ChatComponent({ socketRef, handlerSubmit, messages, loggedUser }) {
+export default function ChatComponent({ messages, loggedUser, sendMessageHandler }) {
   return (
     <Stack>
       <MessagesList messages={messages} loggedUser={loggedUser} />
-      <MessageForm handlerSubmit={handlerSubmit} socketRef={socketRef}/>
+      <MessageForm sendMessageHandler={sendMessageHandler} />
     </Stack>
   );
 }
