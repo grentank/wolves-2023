@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Form, InputGroup } from 'react-bootstrap';
 import SendIcon from '../../../ui/icons/SendIcon';
 
-export default function MessageForm({ sendMessageHandler }) {
+export default function MessageForm({ sendMessageHandler, typingHandler }) {
   const [input, setInput] = useState('');
   const changeHandler = (e) => setInput(e.target.value);
+
+  useEffect(() => {
+    if (input.length) typingHandler(true);
+    else typingHandler(false);
+  }, [input]);
 
   return (
     <Form
